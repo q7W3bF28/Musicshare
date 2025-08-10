@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐分享站 - 发现好音乐</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="音乐分享站">
+            <h1>音乐分享站</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="upload.html"><i class="fas fa-cloud-upload-alt"></i> 上传音乐</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>分享你的音乐世界</h2>
+                <p>上传、分享、发现好音乐</p>
+                <a href="upload.html" class="btn">上传音乐</a>
+            </div>
+            <div class="hero-decoration">
+                <div class="music-note note-1"><i class="fas fa-music"></i></div>
+                <div class="music-note note-2"><i class="fas fa-music"></i></div>
+                <div class="music-note note-3"><i class="fas fa-music"></i></div>
+            </div>
+        </section>
+        
+        <section class="music-list">
+            <div class="section-header">
+                <h2><i class="fas fa-music"></i> 最新音乐</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="recent">最近上传</button>
+                </div>
+            </div>
+            <div class="songs-container" id="songs-container">
+                <div class="no-songs">
+                    <i class="fas fa-music"></i> 
+                    <p>暂无音乐，<a href="upload.html">上传第一首歌曲</a></p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 全局播放器 -->
+        <div id="global-player" class="global-player">
+            <div class="player-controls">
+                <div class="player-left">
+                    <div class="album-art-small">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="track-info">
+                        <div id="now-playing">未播放</div>
+                        <div id="now-artist">--</div>
+                    </div>
+                </div>
+                
+                <div class="player-center">
+                    <div class="control-buttons">
+                        <button id="prev-btn" class="control-btn"><i class="fas fa-step-backward"></i></button>
+                        <button id="play-pause-btn" class="control-btn play-btn"><i class="fas fa-play"></i></button>
+                        <button id="next-btn" class="control-btn"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+                
+                <div class="player-right">
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up"></i>
+                        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                    </div>
+                    <button id="retry-btn" class="retry-btn" style="display:none;">
+                        <i class="fas fa-redo"></i> 重试
+                    </button>
+                </div>
+            </div>
+            <audio id="audio-player"></audio>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 音乐分享站 | 用音乐连接你我</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMusicList();
+        });
+    </script>
+</body>
+</html>

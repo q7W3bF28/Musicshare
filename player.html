@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器 - 音乐分享站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/icon.png" type="image/png">
+</head>
+<body>
+    <main class="player-container">
+        <div class="player-header">
+            <h1><i class="fas fa-headphones"></i> 音乐播放器</h1>
+        </div>
+        
+        <div class="player-content">
+            <div class="album-art-container">
+                <div class="album-art" id="album-art">
+                    <i class="fas fa-music"></i>
+                </div>
+            </div>
+            
+            <div class="track-info">
+                <h2 id="now-playing">未播放</h2>
+                <p id="now-artist">--</p>
+            </div>
+            
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button id="prev-btn" class="control-btn"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-pause-btn" class="control-btn play-btn"><i class="fas fa-play"></i></button>
+                    <button id="next-btn" class="control-btn"><i class="fas fa-step-forward"></i></button>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                </div>
+            </div>
+            
+            <div class="lyrics-container" id="lyrics-container">
+                <h3><i class="fas fa-file-alt"></i> 歌词</h3>
+                <div class="lyrics-content" id="lyrics-content">
+                    <p>暂无歌词</p>
+                </div>
+            </div>
+            
+            <div class="player-actions">
+                <button id="retry-btn" class="retry-btn" style="display:none;">
+                    <i class="fas fa-redo"></i> 重试
+                </button>
+                <a href="musiclist.html" class="btn"><i class="fas fa-list"></i> 返回歌单</a>
+            </div>
+        </div>
+        
+        <audio id="audio-player"></audio>
+    </main>
+    
+    <script src="js/player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initPlayer();
+        });
+    </script>
+</body>
+</html>
